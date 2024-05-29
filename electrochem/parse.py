@@ -118,8 +118,8 @@ def toDataframe(path, active_mass):
             df = echem_df[echem_df['Cycle_Index'] == i]
             # Remove soaking data
             df = df[df['Step_Index'] != 1] 
-            # Remove tail data
-            df = df[df['Step_Index'] != 4] 
+            # Remove rest data
+            df = df[df['Current(A)'] != 0]
             # Split data by charge
             charge_df = df[df['Current'] >= 0]
             # Split data by discharge
